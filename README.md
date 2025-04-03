@@ -1,8 +1,8 @@
-A boilerplate for any node js project that will help developers get started while also following the best practices.
+An Airline backend project with the best practices. Project is created in a way that it can serve as a starter template for multiple node js projects.
 
 `src` - Contains actual source code files and folders
 
- - `config` - 
+ - `config` - All configurations or setup of a library or module is done here. ex: setting up `dotenv` so that we can directly use environment variables anywhere in the project without having to initialize the `dotenv` object everytime.
 
  - `routes` - In the routes folder, we register a route and bind them with corresponding middleware and controllers to it.
 
