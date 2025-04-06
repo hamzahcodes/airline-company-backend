@@ -1,5 +1,6 @@
 const { AirplaneService } = require('../services');
 const { StatusCodes } = require('http-status-codes');
+const { SuccessResponse, ErrorResponse } = require('../utils/common')
 
 async function createAirplane(req, res) {
     console.log(req.body.modelNumber);
@@ -11,23 +12,16 @@ async function createAirplane(req, res) {
             capacity: req.body.capacity
         })
 
+        SuccessResponse.data = response;
         return res
                 .status(StatusCodes.CREATED)
-                .json({
-                    success: true,
-                    message: 'Airplane created successfully',
-                    data: response,
-                    error: {}
-                })
+                .json(SuccessResponse)
+
     } catch (error) {
+        ErrorResponse.error = error
         return res
                 .status(StatusCodes.INTERNAL_SERVER_ERROR)
-                .json({
-                    success: false,
-                    message: 'Error occured while creating airplane',
-                    data: {},
-                    error: error
-                })
+                .json(ErrorResponse)
     }
 }
 

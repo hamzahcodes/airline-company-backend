@@ -1,0 +1,12 @@
+###
+POST http://localhost:3000/api/v1/airplanes
+Content-Type: application/json
+
+{
+    "modelNumber": "airbus a380",
+    "capacity": 5200
+}
+
+###
+
+GET http://localhost:3000/api/v1/info
