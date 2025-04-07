@@ -18,6 +18,10 @@ class CrudRepository {
                 id: data
             }
         });
+        if(response === 0) {
+            throw new AppError('Not able to delete given resource', StatusCodes.NOT_FOUND)
+        }
+        console.log(response)
         return response;
     }
 
