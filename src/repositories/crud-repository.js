@@ -31,6 +31,10 @@ class CrudRepository {
                 id: id
             }
         });
+        // console.log('in repository',response[0])
+        if(response[0] === 0) {
+            throw new AppError('Not able to update given resource', StatusCodes.NOT_FOUND)
+        }
         return response;
     }
 

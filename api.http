@@ -19,3 +19,12 @@ GET http://localhost:3000/api/v1/airplanes/10
 ###
 # Delete Airplane by ID
 DELETE http://localhost:3000/api/v1/airplanes/10
+
+###
+# Update Airplane by ID
+PATCH http://localhost:3000/api/v1/airplanes/11
+Content-Type: application/json
+
+{
+    "capacity": 450
+}
