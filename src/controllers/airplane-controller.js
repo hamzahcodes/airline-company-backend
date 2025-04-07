@@ -18,13 +18,50 @@ async function createAirplane(req, res) {
                 .json(SuccessResponse)
 
     } catch (error) {
+        // console.log('Error in Controller', error)
         ErrorResponse.error = error
         return res
-                .status(StatusCodes.INTERNAL_SERVER_ERROR)
+                .status(error.statusCode)
                 .json(ErrorResponse)
     }
 }
 
+async function getAirplanes(req, res) {
+    try {
+        const airplanes = await AirplaneService.getAirplanes();
+        console.log('in controller', airplanes)
+        SuccessResponse.data = airplanes;
+
+        return res
+                .status(StatusCodes.OK)
+                .json(SuccessResponse)
+                
+    } catch (error) {
+        ErrorResponse.error = error
+        return res
+                .status(error.statusCode)
+                .json(ErrorResponse)
+    }
+}
+
+async function getAirplane(req, res) {
+    const airplaneId = req.params.id;
+    console.log(airplaneId)
+
+    try {
+        const airplane = await AirplaneService.getAirplane(airplaneId);
+        SuccessResponse.data = airplane;
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+    } catch (error) {
+        // console.log(error)
+        ErrorResponse.error = error 
+        return res.status(error.statusCode)
+                    .json(ErrorResponse)
+    }
+}
+
 module.exports = {
-    createAirplane
+    createAirplane, 
+    getAirplanes,
+    getAirplane
 }

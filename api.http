@@ -1,12 +1,17 @@
 ###
+# Create an airplane
 POST http://localhost:3000/api/v1/airplanes
 Content-Type: application/json
 
 {
-    "modelNumber": "airbus a380",
-    "capacity": 5200
+    "modelNumber": "space342",
+    "capacity": 180
 }
 
 ###
+# Get all airplanes
+GET http://localhost:3000/api/v1/airplanes
 
-GET http://localhost:3000/api/v1/info
+###
+# Get Airplane by ID
+GET http://localhost:3000/api/v1/airplanes/1
