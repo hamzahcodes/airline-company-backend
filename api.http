@@ -28,3 +28,17 @@ Content-Type: application/json
 {
     "capacity": 450
 }
+
+
+###
+# Create city
+POST http://localhost:3000/api/v1/cities
+Content-Type: application/json
+
+{
+    "name": "New Delhi"
+}
+
+###
+
+DELETE http://localhost:3000/api/v1/cities/1
