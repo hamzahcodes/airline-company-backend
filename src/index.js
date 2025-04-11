@@ -14,15 +14,14 @@ app.use('/api', apiRoutes)
 async function db() {
     // const city = await City.findByPk(7)
     // await city.createAirport({ 'name': 'Kempagowda Airport', code: 'KMP' })
-    await City.destroy({
-        where: {
-            id: 7
-        }
-    })
+    // await City.destroy({
+    //     where: {
+    //         id: 7
+    //     }
+    // })
 }
 
 app.listen(serverConfig.PORT, () => {
     console.log(`Server running at port ${serverConfig.PORT}`)
     Logger.info('Successfully started the server')
-    db()
 })

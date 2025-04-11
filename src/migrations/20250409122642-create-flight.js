@@ -15,15 +15,30 @@ module.exports = {
       },
       airplaneId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Airplanes',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       departureAirportId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.STRING,
+        allowNull: false,
+        references: {
+          model: 'Airports',
+          key: 'code'
+        },
+        onDelete: 'cascade'
       },
       arrivalAirportId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.STRING,
+        allowNull: false,
+        references: {
+          model: 'Airports',
+          key: 'code'
+        },
+        onDelete: 'cascade'
       },
       departureTime: {
         type: Sequelize.DATE,
