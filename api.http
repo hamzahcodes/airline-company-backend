@@ -36,7 +36,7 @@ POST http://localhost:3000/api/v1/cities
 Content-Type: application/json
 
 {
-    "name": "New Delhi"
+    "name": "Hyderabad"
 }
 
 ###
@@ -49,4 +49,38 @@ Content-Type: application/json
 
 {
     "name": "New York"
+}
+
+###
+# Create Airport
+
+POST http://localhost:3000/api/v1/airports
+Content-Type: application/json
+
+{
+    "name": "Mallu airport",
+    "code": "HYD",
+    "cityId": 12
+}
+
+###
+# Get Airports
+GET http://localhost:3000/api/v1/airports
+
+
+###
+# Get Airport
+GET http://localhost:3000/api/v1/airports/4 HTTP/1.1
+
+###
+# Delete Airport
+DELETE http://localhost:3000/api/v1/airports/4
+
+###
+# Update Airport
+PATCH http://localhost:3000/api/v1/airports/1
+Content-Type: application/json
+
+{
+    "name": "CSI Airport"
 }
